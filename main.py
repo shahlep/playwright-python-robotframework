@@ -3,10 +3,12 @@ from playwright.sync_api import sync_playwright
 #with sync_playwright() as p:
 p = sync_playwright().start()
 
-#mobile device emulation -> https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
-device = p.devices['iPhone 11']
+#device emulation with aspect ratio
+#device = p.devices['iPhone 11']
 browser = p.chromium.launch(headless=False, slow_mo=1000)
-context = browser.new_context(**device)
+context = browser.new_context(
+    viewport={'width': 760, 'height': 630}
+)
 #context.tracing.start(screenshots=True,snapshots=True)
 page = context.new_page()
 
