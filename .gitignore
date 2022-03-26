@@ -3,3 +3,4 @@ venv/*
 .idea
 example.png
 trace.zip
+report

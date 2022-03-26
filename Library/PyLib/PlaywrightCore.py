@@ -11,7 +11,7 @@ class PlaywrightCore:
     def launch_browser(browser_name):
         print("Opening browser : "+browser_name)
         PlaywrightCore.pwSync = sync_playwright().start()
-        if browser_name.lowser() == 'chromium':
+        if browser_name.lower() == 'chromium':
             PlaywrightCore.browser = PlaywrightCore.pwSync.chromium.launch(headless=False,slow_mo=1000)
 
     @staticmethod
