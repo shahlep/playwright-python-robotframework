@@ -5,6 +5,7 @@ p = sync_playwright().start()
 
 browser = p.chromium.launch(headless=False)
 context = browser.new_context()
+context.tracing.start(screenshots=True,snapshots=True)
 page = context.new_page()
 
 page.goto("https://demo.seleniumeasy.com/")
@@ -25,6 +26,7 @@ page.locator("[placeholder=\"Please enter your Message\"]").fill("test msg")
 # Click button:has-text("Show Message")
 page.locator("button:has-text(\"Show Message\")").click()
 
+context.tracing.stop(path="trace.zip")      #playwright show-trace trace.zip
 page.close()
 context.close()
 browser.close()
