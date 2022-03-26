@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Suite description
+Documentation    Common stuffs
 Library          Library/PyLib/PlaywrightCore.py
 
 
