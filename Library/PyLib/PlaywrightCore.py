@@ -14,3 +14,7 @@ class PlaywrightCore:
         if browser_name.lowser() == 'chromium':
             PlaywrightCore.browser = PlaywrightCore.pwSync.chromium.launch(headless=False,slow_mo=1000)
 
+    @staticmethod
+    def close_browser():
+        PlaywrightCore.browser.close()
+        PlaywrightCore.pwSync.stop()
