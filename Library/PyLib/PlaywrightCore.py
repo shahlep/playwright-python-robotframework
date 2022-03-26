@@ -30,7 +30,8 @@ class PlaywrightCore:
     def open_application():
         PlaywrightCore.page = PlaywrightCore.context.new_page()
         PlaywrightCore.page.goto('https://demo.seleniumeasy.com/')
-        PlaywrightCore.page.click("text=No, thanks!")
+        if PlaywrightCore.page.query_selector("text=No, thanks!"):
+            PlaywrightCore.page.click("text=No, thanks!")
 
     @staticmethod
     def close_application():
