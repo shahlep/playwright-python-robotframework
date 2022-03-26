@@ -3,9 +3,11 @@ from playwright.sync_api import sync_playwright
 #with sync_playwright() as p:
 p = sync_playwright().start()
 
-browser = p.chromium.launch(headless=False)
-context = browser.new_context()
-context.tracing.start(screenshots=True,snapshots=True)
+#mobile device emulation -> https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
+device = p.devices['iPhone 11']
+browser = p.chromium.launch(headless=False, slow_mo=1000)
+context = browser.new_context(**device)
+#context.tracing.start(screenshots=True,snapshots=True)
 page = context.new_page()
 
 page.goto("https://demo.seleniumeasy.com/")
@@ -26,7 +28,7 @@ page.locator("[placeholder=\"Please enter your Message\"]").fill("test msg")
 # Click button:has-text("Show Message")
 page.locator("button:has-text(\"Show Message\")").click()
 
-context.tracing.stop(path="trace.zip")      #playwright show-trace trace.zip
+#context.tracing.stop(path="trace.zip")      #playwright show-trace trace.zip
 page.close()
 context.close()
 browser.close()
