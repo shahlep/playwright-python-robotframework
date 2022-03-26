@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation    Common stuffs
-Library          Library/PyLib/PlaywrightCore.py
+Library          ../PyLib/PlaywrightCore.py
 
 
 *** Keywords ***
