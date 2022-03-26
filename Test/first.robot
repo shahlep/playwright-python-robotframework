@@ -1,12 +1,12 @@
 *** Settings ***
 Documentation    Suite description
-Library         ../Library/PyLib/PlaywrightCore.py
+Resource        ../Library/Helper/CommonHelper.robot
 
-Suite Setup         launch browser   CHROMIUM
-Suite Teardown      close browser
+Suite Setup         launch chromium browser
+Suite Teardown      quit opened browser
 
-Test Setup          open application
-Test Teardown       close application
+Test Setup          open the application
+Test Teardown       close the application
 
 *** Test Cases ***
 My first test case
