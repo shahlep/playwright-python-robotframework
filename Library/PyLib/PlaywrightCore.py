@@ -16,9 +16,9 @@ class PlaywrightCore:
         if browser_name.lower() == 'chromium':
             PlaywrightCore.browser = PlaywrightCore.pwSync.chromium.launch(headless=True, slow_mo=1000)
         elif browser_name.lower() == 'firefox':
-            PlaywrightCore.browser = PlaywrightCore.pwSync.firefox.launch(headless=False, slow_mo=1000)
+            PlaywrightCore.browser = PlaywrightCore.pwSync.firefox.launch(headless=True, slow_mo=1000)
         else:
-            PlaywrightCore.browser = PlaywrightCore.pwSync.webkit.launch(headless=False, slow_mo=1000)
+            PlaywrightCore.browser = PlaywrightCore.pwSync.webkit.launch(headless=True, slow_mo=1000)
 
         PlaywrightCore.context = PlaywrightCore.browser.new_context()
 

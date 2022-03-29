@@ -3,7 +3,7 @@ Documentation    Suite description
 Resource        ../Library/Helper/CommonHelper.robot
 Resource        ../Library/Helper/PageHelper.robot
 
-Suite Setup         launch chromium browser
+Suite Setup         launch firefox browser
 Suite Teardown      quit opened browser
 
 Test Setup          open the application
