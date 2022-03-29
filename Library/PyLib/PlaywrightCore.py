@@ -1,15 +1,17 @@
 from playwright.sync_api import sync_playwright
+from robot.api.deco import library, keyword
 
 
+@library
 class PlaywrightCore:
     browser = None
     context = None
     page = None
     pwSync = None
 
-    @staticmethod
-    def launch_browser(browser_name):
-        print("Opening browser : "+browser_name)
+    @keyword
+    def launch_browser(self, browser_name):
+        print("Opening browser : " + browser_name)
         PlaywrightCore.pwSync = sync_playwright().start()
         if browser_name.lower() == 'chromium':
             PlaywrightCore.browser = PlaywrightCore.pwSync.chromium.launch(headless=True, slow_mo=1000)
@@ -20,27 +22,27 @@ class PlaywrightCore:
 
         PlaywrightCore.context = PlaywrightCore.browser.new_context()
 
-    @staticmethod
-    def close_browser():
+    @keyword
+    def close_browser(self):
         PlaywrightCore.context.close()
         PlaywrightCore.browser.close()
         PlaywrightCore.pwSync.stop()
 
-    @staticmethod
-    def open_application():
+    @keyword
+    def open_application(self):
         PlaywrightCore.page = PlaywrightCore.context.new_page()
         PlaywrightCore.page.goto('https://demo.seleniumeasy.com/')
         if PlaywrightCore.page.query_selector("text=No, thanks!"):
             PlaywrightCore.page.click("text=No, thanks!")
 
-    @staticmethod
-    def close_application():
+    @keyword
+    def close_application(self):
         PlaywrightCore.page.close()
 
-    @staticmethod
-    def get_page_object():
+    @keyword
+    def get_page_object(self):
         return PlaywrightCore.page
 
-    @staticmethod
-    def take_screenshot():
+    @keyword
+    def take_screenshot(self):
         return PlaywrightCore.page.screenshot(path='example.png')
