@@ -24,6 +24,7 @@ jobs:
         python -m pip install robotframework
         python -m pip install playwright
         python -m playwright install
+        python -m playwright install-deps
     - name: Test with robotframework playwright
       run: |
         robot Test/first.robot
