@@ -1,6 +1,6 @@
 from playwright.sync_api import sync_playwright
 from robot.api.deco import library, keyword
-#custom library with user defined keywords
+
 
 @library
 class PlaywrightCore:
