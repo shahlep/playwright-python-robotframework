@@ -1,3 +1,4 @@
+#PO - just python class with method
 class Menu:
 
     first_menu_locator = "#treemenu >> text=FIRST"
