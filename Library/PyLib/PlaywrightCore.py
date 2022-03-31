@@ -18,7 +18,7 @@ class PlaywrightCore:
         elif browser_name.lower() == 'firefox':
             PlaywrightCore.browser = PlaywrightCore.pwSync.firefox.launch(headless=True, slow_mo=1000)
         else:
-            PlaywrightCore.browser = PlaywrightCore.pwSync.webkit.launch(headless=True, slow_mo=1000)
+            PlaywrightCore.browser = PlaywrightCore.pwSync.webkit.launch(headless=True, timeout=6000)
 
         PlaywrightCore.context = PlaywrightCore.browser.new_context()
 
