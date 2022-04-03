@@ -27,5 +27,5 @@ jobs:
         python -m playwright install-deps
     - name: Test with robotframework playwright
       run: |
-        robot Test/*.robot
+        robot Test/first.robot
 
