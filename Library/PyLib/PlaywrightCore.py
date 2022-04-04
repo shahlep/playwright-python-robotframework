@@ -29,9 +29,9 @@ class PlaywrightCore:
         PlaywrightCore.pwSync.stop()
 
     @keyword
-    def open_application(self):
+    def open_application(self, url='https://demo.seleniumeasy.com/'):
         PlaywrightCore.page = PlaywrightCore.context.new_page()
-        PlaywrightCore.page.goto('https://demo.seleniumeasy.com/')
+        PlaywrightCore.page.goto(url)
         if PlaywrightCore.page.query_selector("text=No, thanks!"):
             PlaywrightCore.page.click("text=No, thanks!")
 

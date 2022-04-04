@@ -22,6 +22,12 @@ Open the application
 Close the application
     close application
 
+Open the file upload application
+    open application        https://the-internet.herokuapp.com/upload
+
+Close the file upload application
+    close application
+
 Get Page Handle
     ${page_handle}      get page object
     [Return]            ${page_handle}
