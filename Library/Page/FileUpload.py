@@ -1,3 +1,5 @@
+
+
 class FileChooser:
 
     upload_element_locator = "input[name=\"file\"]"
