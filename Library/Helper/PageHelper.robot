@@ -24,7 +24,7 @@ Menu.Navigate Menu For Alerts
 FileUpload.Upload File In Silent Mode
     [Arguments]     ${filepath}
     ${page}     get page handle
-    silent upload file     ${page}     ${filepath}
+    silently upload file     ${page}     ${filepath}
     ${name}   get uploaded file name    ${page}
     Log    ${name}
 
